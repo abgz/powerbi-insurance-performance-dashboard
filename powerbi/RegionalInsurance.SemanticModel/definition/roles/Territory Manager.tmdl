@@ -1,0 +1,16 @@
+role 'Territory Manager'
+	modelPermission: read
+
+	tablePermission dim_agent =
+			'dim_agent'[territory] IN
+			    CALCULATETABLE(
+			        VALUES('dim_agent'[territory]),
+			        FILTER(
+			            ALL('dim_agent'),
+			            'dim_agent'[Agent_Email]
+			                = USERPRINCIPALNAME()
+			        )
+			    )
+
+	annotation PBI_Id = 91c265e9803e4078a912e4e16c427fb4
+

@@ -1,0 +1,107 @@
+table fact_persistency
+	lineageTag: 5ddacda7-a277-4375-adf8-197bd761cad3
+
+	column policy_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 658a6bee-3c4f-486c-8a49-1d002de49f88
+		summarizeBy: sum
+		sourceColumn: policy_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column agent_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 916c86cd-0539-47c2-bca8-4e247dba16d0
+		summarizeBy: none
+		sourceColumn: agent_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		lineageTag: b8146202-138a-4fe0-99b1-40e6c243381f
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column issue_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: c2205b5b-3326-4cf4-8d15-b91ed3c76f76
+		summarizeBy: none
+		sourceColumn: issue_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column renewal_due_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 7d342a4d-6c91-4cec-9302-3e333dc5f21f
+		summarizeBy: sum
+		sourceColumn: renewal_due_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column renewal_status
+		dataType: string
+		lineageTag: 40518248-a657-4ece-8980-6607d2556339
+		summarizeBy: none
+		sourceColumn: renewal_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column premium_usd
+		dataType: double
+		lineageTag: 667abbcd-173e-41b6-aa8d-18d097de2cc7
+		summarizeBy: sum
+		sourceColumn: premium_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ___issue_date = RELATED(dim_date[date])
+		formatString: Short Date
+		lineageTag: 7afc9936-5c24-4701-a0cb-74001405dc98
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ___renewal_due_date =
+			
+			LOOKUPVALUE (
+			    dim_date[date],
+			    dim_date[date_key], fact_persistency[renewal_due_date_key]
+			)
+		formatString: Short Date
+		lineageTag: be524e54-406a-44b7-97be-2ed673ca8064
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ___date_diff = DATEDIFF(fact_persistency[___issue_date],fact_persistency[___renewal_due_date],MONTH)
+		formatString: 0
+		lineageTag: 1aa5ae6a-2069-48b4-8964-8b4ece0bde29
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_persistency = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\My Files Home\Job and training 2026\TCS assignment\Assignment\data\fact_persistency.csv"),[Delimiter=",", Columns=7, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"policy_id", Int64.Type}, {"agent_id", Int64.Type}, {"product_id", Int64.Type}, {"issue_date_key", Int64.Type}, {"renewal_due_date_key", Int64.Type}, {"renewal_status", type text}, {"premium_usd", type number}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each true)
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
