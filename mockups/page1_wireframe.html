@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page 1 wireframe: Executive Summary (mobile layout)</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 24px; font-family: "Segoe UI", Arial, sans-serif; color: #222; background: #f6f6f6; line-height: 1.4; }
+  h1 { font-size: 18px; margin: 0 0 4px; text-align: center; }
+  .intro { color: #666; font-size: 13px; margin: 0 auto 16px; max-width: 380px; text-align: center; }
+
+  .phone { width: 360px; margin: 0 auto; background: #fff; border: 2px solid #222; border-radius: 18px; padding: 12px; }
+  .box { border: 1.5px dashed #8a8a8a; background: #ececec; padding: 8px 10px; margin-bottom: 10px; }
+  .box h3 { font-size: 13px; margin: 0 0 2px; }
+  .box small { display: block; color: #666; font-size: 11px; }
+  .measure { font-size: 11px; color: #666; }
+  .tag { display: inline-block; background: #222; color: #fff; font-size: 10px; padding: 0 6px; border-radius: 2px; margin-bottom: 4px; }
+
+  /* Slicer row: three equal controls */
+  .slicers { font-size: 0; margin: 0 -3px 10px; }
+  .slicer { display: inline-block; width: 32%; margin: 0 .66%; vertical-align: top; background: #fff; border: 1.5px solid #8a8a8a; padding: 5px 6px; font-size: 11px; }
+  .slicer b { display: block; font-size: 11px; font-weight: 600; }
+  .slicer .dd { margin-top: 3px; border: 1px solid #8a8a8a; background: #ececec; padding: 2px 6px; overflow: hidden; font-size: 11px; }
+  .slicer .dd span.v { float: left; }
+  .slicer .dd span.a { float: right; }
+
+  /* KPI cards: full width, stacked */
+  .kpi { background: #ececec; }
+  .kpi .val { font-size: 22px; font-weight: 600; letter-spacing: 1px; color: #999; margin: 4px 0 2px; }
+
+  svg { display: block; width: 100%; height: auto; margin-top: 6px; }
+
+  .notes { width: 360px; margin: 16px auto 0; background: #fff8d6; border: 1.5px solid #c9b44a; padding: 10px 14px; font-size: 12px; }
+  .notes h2 { font-size: 13px; margin: 0 0 6px; }
+  .notes ol { margin: 0; padding-left: 18px; }
+  .notes li { margin-bottom: 6px; }
+  .notes .open { margin-top: 10px; padding-top: 8px; border-top: 1px dashed #c9b44a; }
+</style>
+</head>
+<body>
+
+<h1>Page 1: Executive Summary</h1>
+<p class="intro">Mobile layout wireframe, matching the Power BI mobile layout. Grey boxes are placeholders, so no real data is shown.</p>
+
+<div class="phone">
+
+  <!-- 1. Filter area -->
+  <div class="slicers">
+    <div class="slicer"><b>Year</b><div class="dd"><span class="v">Multiple...</span><span class="a">&#9662;</span></div></div>
+    <div class="slicer"><b>Sale Channel</b><div class="dd"><span class="v">All</span><span class="a">&#9662;</span></div></div>
+    <div class="slicer"><b>Region</b><div class="dd"><span class="v">All</span><span class="a">&#9662;</span></div></div>
+  </div>
+
+  <!-- 2. KPI strip (stacked) -->
+  <div class="box kpi"><h3>APE YTD</h3><div class="val">0M</div><div class="measure">[APE YTD]</div></div>
+  <div class="box kpi"><h3>APE vs Target %</h3><div class="val">000.00 %</div><div class="measure">[APE vs Target %]</div></div>
+  <div class="box kpi"><h3>Active Agent Count</h3><div class="val">000</div><div class="measure">[Active Agent Count]</div></div>
+  <div class="box kpi"><h3>Persistency Rate</h3><div class="val">00.00 %</div><div class="measure">[Persistency Rate]</div></div>
+
+  <!-- 3. Trend -->
+  <div class="box">
+    <h3>Trend</h3>
+    <small>Total APE and target by month. Columns are APE (left axis), the line is the target (right axis).</small>
+    <svg viewBox="0 0 320 190" role="img" aria-label="Placeholder: columns by month with a target line on a secondary axis, month and year labels below, and a legend">
+      <!-- axes -->
+      <line x1="34" y1="20" x2="34" y2="110" stroke="#8a8a8a"/>
+      <line x1="286" y1="20" x2="286" y2="110" stroke="#8a8a8a"/>
+      <line x1="34" y1="110" x2="286" y2="110" stroke="#8a8a8a"/>
+      <g fill="#8a8a8a" font-size="9">
+        <text x="6" y="24">1M</text><text x="6" y="112">0M</text>
+        <text x="290" y="24">370K</text><text x="290" y="112">350K</text>
+      </g>
+      <!-- columns -->
+      <g fill="#bdbdbd">
+        <rect x="42" y="45" width="14" height="65"/><rect x="66" y="45" width="14" height="65"/>
+        <rect x="90" y="45" width="14" height="65"/><rect x="114" y="45" width="14" height="65"/>
+        <rect x="138" y="45" width="14" height="65"/><rect x="162" y="46" width="14" height="64"/>
+        <rect x="186" y="46" width="14" height="64"/><rect x="210" y="47" width="14" height="63"/>
+        <rect x="234" y="47" width="14" height="63"/><rect x="258" y="48" width="14" height="62"/>
+      </g>
+      <!-- target line -->
+      <polyline points="49,42 73,46 97,60 121,56 145,50 169,50 193,48 217,52 241,56 265,64" fill="none" stroke="#222" stroke-width="2" stroke-dasharray="5 3"/>
+      <!-- month labels (rotated) and year band -->
+      <g fill="#8a8a8a" font-size="8">
+        <text transform="translate(52,114) rotate(90)">Month</text>
+        <text transform="translate(76,114) rotate(90)">Month</text>
+        <text transform="translate(100,114) rotate(90)">Month</text>
+        <text transform="translate(124,114) rotate(90)">Month</text>
+        <text transform="translate(148,114) rotate(90)">Month</text>
+        <text transform="translate(172,114) rotate(90)">Month</text>
+        <text transform="translate(196,114) rotate(90)">Month</text>
+        <text transform="translate(220,114) rotate(90)">Month</text>
+        <text transform="translate(244,114) rotate(90)">Month</text>
+        <text transform="translate(268,114) rotate(90)">Month</text>
+      </g>
+      <line x1="34" y1="150" x2="286" y2="150" stroke="#bdbdbd"/>
+      <text x="150" y="160" fill="#8a8a8a" font-size="9">Year</text>
+      <!-- scrollbar -->
+      <rect x="34" y="166" width="252" height="6" rx="3" fill="#d4d4d4"/>
+      <rect x="50" y="166" width="70" height="6" rx="3" fill="#8a8a8a"/>
+      <!-- legend -->
+      <rect x="34" y="178" width="8" height="8" fill="#bdbdbd"/>
+      <text x="46" y="186" fill="#666" font-size="9">Total APE</text>
+      <line x1="110" y1="182" x2="124" y2="182" stroke="#222" stroke-width="2" stroke-dasharray="5 3"/>
+      <text x="128" y="186" fill="#666" font-size="9">Target</text>
+    </svg>
+  </div>
+
+  <!-- 4. Top 10 agents -->
+  <div class="box" style="margin-bottom:0">
+    <h3>Top 10 agents</h3>
+    <small>Total APE by agent name. Blank agent excluded.</small>
+    <svg viewBox="0 0 320 150" role="img" aria-label="Placeholder: ten horizontal bars in descending order with a value axis below">
+      <line x1="90" y1="6" x2="90" y2="124" stroke="#8a8a8a"/>
+      <g fill="#bdbdbd">
+        <rect x="92" y="8" width="170" height="8"/><rect x="92" y="20" width="162" height="8"/>
+        <rect x="92" y="32" width="150" height="8"/><rect x="92" y="44" width="148" height="8"/>
+        <rect x="92" y="56" width="144" height="8"/><rect x="92" y="68" width="140" height="8"/>
+        <rect x="92" y="80" width="138" height="8"/><rect x="92" y="92" width="134" height="8"/>
+        <rect x="92" y="104" width="130" height="8"/><rect x="92" y="116" width="126" height="8"/>
+      </g>
+      <g fill="#8a8a8a" font-size="8">
+        <text x="40" y="15">Agent 1</text><text x="40" y="27">Agent 2</text><text x="40" y="39">Agent 3</text>
+        <text x="34" y="123">Agent 10</text>
+        <text x="86" y="140">0.0M</text><text x="236" y="140">0.5M</text>
+      </g>
+    </svg>
+  </div>
+
+</div>
+
+<div class="notes">
+  <h2>Design decisions</h2>
+  <ol>
+    <li>One column, in reading order: scope (three slicers in one row), then the four KPIs, then the trend, then the Top 10.</li>
+    <li>The slicers share one row, so the scope stays visible without pushing the numbers down.</li>
+    <li>KPI cards are full width and stacked, which makes each number easy to read on a phone, one per question: volume, performance, capacity, quality.</li>
+    <li>The trend uses columns for APE and a line for target on a secondary axis.</li>
+    <li>The Top 10 sits last and excludes the blank agent.</li>
+    <li>Native visuals only, as the brief requires for this page.</li>
+  </ol>
+  <div class="open">
+    <b>To review from the built report</b>
+    <ol>
+      <li>The two trend axes have different ranges (0M to 1M, and 350K to 370K), so the line and columns are not directly comparable. Consider one shared axis starting at zero.</li>
+      <li>The month axis is not in calendar order. Sort it by month number.</li>
+      <li>With several years selected, YTD is ambiguous. Decide whether the Year slicer allows one year only.</li>
+      <li>The four stacked cards push the trend below the first screen. A 2 by 2 grid would bring it up.</li>
+      <li>Sale Channel is set to one value in the screenshot, so every number on the page reflects that channel only.</li>
+    </ol>
+  </div>
+</div>
+
+</body>
+</html>
