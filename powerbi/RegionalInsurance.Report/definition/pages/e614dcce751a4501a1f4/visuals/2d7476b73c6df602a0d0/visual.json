@@ -92,6 +92,7 @@
     "filters": [
       {
         "name": "93d118f7f2c46df6bf88",
+        "ordinal": 0,
         "field": {
           "Column": {
             "Expression": {
@@ -102,7 +103,95 @@
             "Property": "agent_name"
           }
         },
-        "type": "Advanced",
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "dim_agent",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "agent_name"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "94c3fe7f119d138e0f88",
+        "ordinal": 1,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measure"
+              }
+            },
+            "Property": "Total APE"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "914ed203e4877a3e5ce7",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_agent"
+              }
+            },
+            "Property": "agent_id"
+          }
+        },
+        "type": "TopN",
         "filter": {
           "Version": 2,
           "From": [
@@ -119,8 +208,8 @@
                         "Type": 0
                       },
                       {
-                        "Name": "f",
-                        "Entity": "fact_sales",
+                        "Name": "_",
+                        "Entity": "_Measure",
                         "Type": 0
                       }
                     ],
@@ -132,7 +221,7 @@
                               "Source": "d"
                             }
                           },
-                          "Property": "agent_name"
+                          "Property": "agent_id"
                         },
                         "Name": "field"
                       }
@@ -141,18 +230,13 @@
                       {
                         "Direction": 2,
                         "Expression": {
-                          "Aggregation": {
+                          "Measure": {
                             "Expression": {
-                              "Column": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Source": "f"
-                                  }
-                                },
-                                "Property": "ape_usd"
+                              "SourceRef": {
+                                "Source": "_"
                               }
                             },
-                            "Function": 0
+                            "Property": "Total APE"
                           }
                         }
                       }
@@ -181,7 +265,7 @@
                             "Source": "d"
                           }
                         },
-                        "Property": "agent_name"
+                        "Property": "agent_id"
                       }
                     }
                   ],
@@ -194,8 +278,10 @@
               }
             }
           ]
-        }
+        },
+        "howCreated": "User"
       }
-    ]
+    ],
+    "filterSortOrder": "Custom"
   }
 }

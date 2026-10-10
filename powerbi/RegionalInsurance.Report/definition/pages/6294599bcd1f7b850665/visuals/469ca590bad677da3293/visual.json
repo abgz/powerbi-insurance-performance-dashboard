@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "469ca590bad677da3293",
   "position": {
-    "x": 435.71428571428572,
-    "y": 115.71428571428572,
+    "x": 560.55321824072723,
+    "y": 112.90294501668359,
     "z": 0,
     "height": 322.85714285714289,
     "width": 451.42857142857144,
@@ -37,5 +37,23 @@
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6171581cf49bf21a3d41",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measure"
+              }
+            },
+            "Property": "Agent Card HTML"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

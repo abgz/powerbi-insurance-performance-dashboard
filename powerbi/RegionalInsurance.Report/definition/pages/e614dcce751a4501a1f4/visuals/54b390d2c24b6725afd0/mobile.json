@@ -7,5 +7,22 @@
     "height": 57,
     "width": 121,
     "tabOrder": 7
+  },
+  "objects": {
+    "data": [],
+    "general": [],
+    "header": [
+      {
+        "properties": {
+          "text": {
+            "expr": {
+              "Literal": {
+                "Value": "'Sale Channel'"
+              }
+            }
+          }
+        }
+      }
+    ]
   }
 }

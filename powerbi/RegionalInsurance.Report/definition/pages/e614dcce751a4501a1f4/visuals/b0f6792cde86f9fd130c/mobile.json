@@ -7,5 +7,20 @@
     "height": 374,
     "width": 324,
     "tabOrder": 4
+  },
+  "visualContainerObjects": {
+    "title": [
+      {
+        "properties": {
+          "text": {
+            "expr": {
+              "Literal": {
+                "Value": "'Trend'"
+              }
+            }
+          }
+        }
+      }
+    ]
   }
 }

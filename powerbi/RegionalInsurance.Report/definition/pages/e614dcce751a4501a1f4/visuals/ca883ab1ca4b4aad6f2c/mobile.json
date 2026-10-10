@@ -7,5 +7,22 @@
     "height": 57,
     "width": 105,
     "tabOrder": 6
+  },
+  "objects": {
+    "data": [],
+    "general": [],
+    "header": [
+      {
+        "properties": {
+          "text": {
+            "expr": {
+              "Literal": {
+                "Value": "'Region'"
+              }
+            }
+          }
+        }
+      }
+    ]
   }
 }

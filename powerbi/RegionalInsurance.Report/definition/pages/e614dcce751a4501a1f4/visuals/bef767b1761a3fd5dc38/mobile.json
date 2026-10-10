@@ -7,5 +7,34 @@
     "height": 57,
     "width": 98,
     "tabOrder": 8
+  },
+  "objects": {
+    "data": [
+      {
+        "properties": {
+          "mode": {
+            "expr": {
+              "Literal": {
+                "Value": "'Dropdown'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "general": [],
+    "header": [
+      {
+        "properties": {
+          "text": {
+            "expr": {
+              "Literal": {
+                "Value": "'Year'"
+              }
+            }
+          }
+        }
+      }
+    ]
   }
 }

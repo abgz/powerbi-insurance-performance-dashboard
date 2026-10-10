@@ -73,6 +73,20 @@
               },
               "queryRef": "_Measure.Persistency Rate",
               "nativeQueryRef": "Persistency Rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measure"
+                    }
+                  },
+                  "Property": "Active Policy Count"
+                }
+              },
+              "queryRef": "_Measure.Active Policy Count",
+              "nativeQueryRef": "Active Policy Count"
             }
           ]
         }
@@ -94,5 +108,65 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "383c2bb7bbba5d122508",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_date"
+              }
+            },
+            "Property": "year"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8b360d465d158c8162dd",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measure"
+              }
+            },
+            "Property": "___Policies issued"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c69fbbd8c47ef4a5a286",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measure"
+              }
+            },
+            "Property": "___Policy renewed/persisited"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fd5f9af6d93bded0d2d8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measure"
+              }
+            },
+            "Property": "Persistency Rate"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
