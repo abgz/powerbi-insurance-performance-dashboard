@@ -4,6 +4,17 @@ A Power BI report for a regional life insurance company's agency distribution te
 
 The project is saved in PBIP format. The wireframe for Page 1 is in [`/mockups/page1_wireframe.html`](mockups/page1_wireframe.html).
 
+## Data files and setup
+
+The source CSV files are **not included in this repository**. They are excluded through `.gitignore`, so the supplied data stays out of version control. If you clone or pull this repository, the report will open but will show no data until you add the files yourself.
+
+To run the report:
+
+1. Get the CSV files supplied with the assessment: `dim_date`, `dim_agent`, `dim_product`, `fact_sales`, `fact_target` and `fact_persistency`.
+2. Place them in the `data/` folder at the root of the repository, keeping the original file names.
+3. Open the project in Power BI Desktop. If the files are somewhere else, go to **Transform data > Data source settings** and point each source to the new location.
+4. Select **Refresh**. The model, measures and visuals then load against your copy of the data.
+
 ## Data model decisions
 
 ### Two date relationships on `fact_persistency`
