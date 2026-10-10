@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainerMobileState/2.8.0/schema.json",
+  "position": {
+    "x": 219,
+    "y": 0,
+    "z": 6,
+    "height": 57,
+    "width": 105,
+    "tabOrder": 6
+  },
+  "objects": {
+    "data": [],
+    "general": [],
+    "header": [
+      {
+        "properties": {
+          "text": {
+            "expr": {
+              "Literal": {
+                "Value": "'Region'"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

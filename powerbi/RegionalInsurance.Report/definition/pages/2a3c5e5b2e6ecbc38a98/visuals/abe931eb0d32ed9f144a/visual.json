@@ -1,0 +1,52 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "abe931eb0d32ed9f144a",
+  "position": {
+    "x": 1282.4015009380864,
+    "y": 0,
+    "z": 3000,
+    "height": 180.11257035647282,
+    "width": 293.58348968105065,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measure"
+                    }
+                  },
+                  "Property": "Active Agent Count"
+                }
+              },
+              "queryRef": "_Measure.Active Agent Count",
+              "nativeQueryRef": "Active Agent Count"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_agent"
+                    }
+                  },
+                  "Property": "channel"
+                }
+              },
+              "queryRef": "dim_agent.channel",
+              "nativeQueryRef": "channel"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

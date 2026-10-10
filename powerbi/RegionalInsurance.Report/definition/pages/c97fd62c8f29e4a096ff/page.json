@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "c97fd62c8f29e4a096ff",
+  "displayName": "Persistency Cohort",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "pageBinding": {
+    "name": "fd74e0e58cc4a14ca8e6",
+    "type": "Default",
+    "parameters": []
+  }
+}
